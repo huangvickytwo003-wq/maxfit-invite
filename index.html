@@ -12,23 +12,24 @@ body {
   justify-content: center;
 }
 
-/* 固定比例容器（關鍵） */
+/* 主容器（固定比例，關鍵） */
 .container {
   position: relative;
   width: 100%;
   max-width: 1200px;
-  aspect-ratio: 1200 / 630; /* ⚠️ 依你圖片比例（很重要） */
+  aspect-ratio: 1200 / 630; /* ⚠️ 依你的圖片比例 */
+  background: #000;
 }
 
-/* 主圖 */
+/* 主圖（不裁切、不超出） */
 .container img {
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain; /* ✅ 關鍵：完整顯示 */
 }
 
-/* 點擊區（穩定版） */
+/* 點擊區 */
 .link {
   position: absolute;
   cursor: pointer;
@@ -50,14 +51,19 @@ body {
   height: 8%;
 }
 
-/* hover效果 */
+/* hover效果（可選） */
 .link:hover {
   background: rgba(255,255,255,0.15);
   border-radius: 4px;
 }
 
-/* 手機優化（重要） */
+/* 手機版優化 */
 @media (max-width: 768px) {
+
+  .container {
+    aspect-ratio: 1200 / 700; /* 手機稍微調整比例 */
+  }
+
   .map {
     top: 86%;
     left: 10%;
