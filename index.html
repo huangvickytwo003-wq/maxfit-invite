@@ -12,21 +12,17 @@ body {
   justify-content: center;
 }
 
-/* 主容器（固定比例，關鍵） */
+/* 容器 = 圖片本身（關鍵，不再錯位） */
 .container {
   position: relative;
   width: 100%;
   max-width: 1200px;
-  aspect-ratio: 1200 / 630; /* ⚠️ 依你的圖片比例 */
-  background: #000;
 }
 
-/* 主圖（不裁切、不超出） */
+/* 主圖（不裁切、不變形） */
 .container img {
-  position: absolute;
   width: 100%;
-  height: 100%;
-  object-fit: contain; /* ✅ 關鍵：完整顯示 */
+  display: block;
 }
 
 /* 點擊區 */
@@ -35,23 +31,23 @@ body {
   cursor: pointer;
 }
 
-/* MAP */
+/* MAP 按鈕 */
 .map {
   top: 84%;
-  left: 14%;
-  width: 22%;
-  height: 8%;
+  left: 13%;
+  width: 24%;
+  height: 9%;
 }
 
-/* BOOTH */
+/* BOOTH 按鈕 */
 .booth {
   top: 84%;
   left: 40%;
-  width: 28%;
-  height: 8%;
+  width: 30%;
+  height: 9%;
 }
 
-/* hover效果（可選） */
+/* hover效果（讓使用者知道可點） */
 .link:hover {
   background: rgba(255,255,255,0.15);
   border-radius: 4px;
@@ -60,19 +56,15 @@ body {
 /* 手機版優化 */
 @media (max-width: 768px) {
 
-  .container {
-    aspect-ratio: 1200 / 700; /* 手機稍微調整比例 */
-  }
-
   .map {
-    top: 100%;
-    left: 10%;
-    width: 35%;
+    top: 86%;
+    left: 8%;
+    width: 38%;
     height: 10%;
   }
 
   .booth {
-    top: 100%;
+    top: 86%;
     left: 50%;
     width: 40%;
     height: 10%;
@@ -87,11 +79,15 @@ body {
 <div class="container">
   <img src="FIBO.jpg">
 
-  <!-- MAP -->
-  <a href="https://www.fibo.com/germany/en-gb/visit/venue-and-travel.html" target="_blank" class="link map"></a>
+  <!-- FIBO MAP -->
+  <a href="https://www.fibo.com/germany/en-gb/visit/venue-and-travel.html"
+     target="_blank"
+     class="link map"></a>
 
-  <!-- BOOTH -->
-  <a href="https://www.fibo.com/germany/en-gb/visit/Hallplan.html" target="_blank" class="link booth"></a>
+  <!-- BOOTH LOCATION -->
+  <a href="https://www.fibo.com/germany/en-gb/visit/Hallplan.html"
+     target="_blank"
+     class="link booth"></a>
 
 </div>
 
